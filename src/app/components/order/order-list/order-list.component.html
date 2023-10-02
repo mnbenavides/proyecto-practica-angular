@@ -1,0 +1,52 @@
+<div class="contenedor" *ngIf="detalle.length > 0">
+    <div>
+        <section class="card">
+            <article>
+                <label class="item">Código de pedido: </label>
+                <label>{{orden.codigoPedido}}</label>
+            </article>
+            <article>
+                <label class="item">Cliente: </label>
+                <label>{{orden.cliente}}</label>
+            </article>
+            <article>
+                <label class="item">Dirección de entrega: </label>
+                <label>{{orden.direccion}}</label>
+            </article>
+        </section>
+        <section>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Nombre producto</th>
+                        <th>Ref.</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dato of orden.pedido">
+                        <td>{{dato.producto}}</td>
+                        <td>{{dato.referencia}}</td>
+                        <td>{{dato.cantidad}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="card">
+            <article>
+                <label class="item">Estado del pedido: </label>
+                <label>{{orden.estadoPedido}}</label>
+            </article>
+            <article>
+                <label class="item">Fecha estimada de entrega: </label>
+                <label>{{ orden.fechaEstimadaEntrega | date:'dd/MM/yyyy' }}</label>
+            </article>
+        </section>
+    
+        <section class="button">
+            <button class="close" (click)="exit()">Cerrar</button>
+            <button class="back" (click)="goBack()">Nueva consulta</button>
+        </section>
+    </div>
+   
+</div>

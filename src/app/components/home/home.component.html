@@ -1,0 +1,33 @@
+<div class="bg">
+    <div class="content" [formGroup]="formulario">
+        <label for="codigo">Código postal</label>
+        <input formControlName="codigo" type="text" name="codigo" />
+        <div *ngFor="let error of errors">
+            <span class="error"
+                *ngIf="formulario.controls['codigo'].hasError(error.type) && (formulario.controls['codigo'].dirty || formulario.controls['codigo'].touched)">
+                {{error.message}}
+            </span>
+        </div>
+        <label for="tipo">Tipo de documento</label>
+        <select formControlName="tipo">
+            <option value="CC">Cédula de ciudadanía</option>
+            <option value="CE">Cédula extranjera</option>
+        </select>
+        <div *ngFor="let error of errors">
+            <span class="error"
+                *ngIf="formulario.controls['tipo'].hasError(error.type) && (formulario.controls['tipo'].dirty || formulario.controls['tipo'].touched)">
+                {{error.message}}
+            </span>
+        </div>
+        <label for="documento">Documento</label>
+        <input type="text" name="documento" formControlName="documento" />
+        <div *ngFor="let error of errors">
+            <span class="error"
+                *ngIf="formulario.controls['documento'].hasError(error.type) && (formulario.controls['documento'].dirty || formulario.controls['documento'].touched)">
+                {{error.message}}
+            </span>
+        </div>
+        <button type="submit" (click)="buscar()">Consultar</button>
+    </div>
+
+</div>
